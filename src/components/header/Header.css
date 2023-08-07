@@ -1,0 +1,132 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.header h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: var(--color-white);
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.header h1 span {
+    display: block;
+}
+
+h1 span:nth-child(1), h1 span:nth-child(3) {
+    font-weight: 100;
+}
+
+.header h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 65%;
+    height: 1px;
+    background: var(--color-white);
+}
+
+.header-left p {
+    font-size: 80;
+    margin: 3rem 0;
+    width: 70%;
+}
+
+.header-right .bar {
+    height: 400px;
+    width: 400px;
+    display: inline-block;
+    box-shadow: var(--box-shadow-dark-inset);
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.header-right .bar::after {
+    content: ' ';
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: var(--box-shadow-dark);
+}
+
+.bar svg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    fill: none;
+}
+
+.bar svg circle {
+    position: absolute;
+    transform: scale(0.9);
+    transform-origin: center;
+    stroke: var(--light-gold);
+    stroke-width: 30px;
+    stroke-linecap: round;
+    stroke-dasharray: 1257px;
+    stroke-dashoffset: 1257px;
+    animation: progress-bar 1s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+}
+
+.bar img {
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes progress-bar {
+    0% {
+        stroke-dashoffset: 1257px;
+    }
+    20% {
+        stroke-dashoffset: calc(1257px - (1257px * 80)/100);
+    }
+    80% {
+        stroke-dashoffset: calc(1257px - (1257px * 80)/100);
+    }
+    100% {
+        stroke-dashoffset: 1257px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .header {
+        flex-direction: column;
+    }
+    .header-left, .header-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .header-left {
+        margin-bottom: 4rem;
+    }
+
+    .header h1::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .header-right .bar {
+        transform: scale(0.8);
+    }
+}

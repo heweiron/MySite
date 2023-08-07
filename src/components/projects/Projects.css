@@ -1,0 +1,119 @@
+.projects .title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: var(--color-white);
+    position: relative;
+    padding-bottom: 3rem;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5rem;
+}
+
+.project .logo {
+    width: 100px;
+    border-radius: 50%;
+    transform: translate(75px, 75px);
+    animation: zoom 1s infinite;
+}
+
+.semicircle {
+    background-color: var(--dark-black);
+    height: 250px;
+    width: 125px;
+    border-radius: 125px 0 0 125px;
+    box-shadow: var(--box-shadow-dark-inset);
+    transform-origin: center right;
+}
+
+.semicircle:before {
+    content: '';
+    position: absolute;
+    transform: translate(50px, 50px);
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: var(--dark-black);
+    box-shadow: var(--box-shadow-dark);
+}
+
+.semicircle:hover {
+    transition: transform .7s ease-in-out;
+    transform: rotate(360deg);
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1)
+        translate(75px, 75px)
+    }
+    50% {
+        transform: scale(1.1)
+        translate(70px, 70px)
+    }
+    100% {
+        transform: scale(1)
+        translate(75px, 75px)
+    }
+}
+
+.project .button {
+    margin-right: 20rem;
+    padding-bottom: 5rem;
+}
+
+.project .project-detail {
+    border-radius: 25px;
+    box-shadow: var(--box-shadow-dark);
+    padding: 2rem;
+}
+
+.project .detail-border {
+    border-radius: 25px;
+    box-shadow: var(--box-shadow-dark-inset);
+    padding: 2rem;
+    width: 80%;
+    margin-right: 5rem;
+    margin-bottom: 2rem;
+}
+
+
+.project .name {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.4;
+    color: var(--color-white);
+}
+
+.project .type {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--light-gold);
+}
+
+.project p {
+    font-size: 1.5rem;
+    font-weight: 200;
+    line-height: 1.4;
+    color: var(--color-white);
+    text-indent: 30px;
+}
+
+@media screen and (max-width: 750px) {
+    .project {
+        flex-direction: column;
+    }
+    .project .button {
+        order: 1;
+    }
+
+    .project .detail-border {
+        order: 2;
+    }
+    
+}
